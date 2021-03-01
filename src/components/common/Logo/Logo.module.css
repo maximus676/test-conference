@@ -1,0 +1,21 @@
+.block__logo{
+    position: absolute;
+    top: 6%;
+    left: 84%;
+    height: 260px;
+    width: 190px;
+}
+.logo{
+    margin-left: 20px;
+    height: 150px;
+}
+.block__logo p {
+    color: white;
+    text-align: center;
+    height: 90px;
+    width: 188px;
+    font-size: 23px;
+    font-weight: 200;
+    line-height: 1.1;
+    font-style: normal;
+}
