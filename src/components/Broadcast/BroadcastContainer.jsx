@@ -4,16 +4,16 @@ import {connect} from "react-redux";
 } from "../../redux/profile-reducer";*/
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
-import Contest from "./Contest";
+import Broadcast from "./Broadcast";
 
 
 
-class ContestContainer extends React.Component {
+class BroadcastContainer extends React.Component {
 
     render () {
         return(
             <div>
-                <Contest />
+                <Broadcast />
             </div>
         )
     }
@@ -28,4 +28,4 @@ export default compose(
     connect (mapStateToProps, {
     }),
      withAuthRedirect
-)(ContestContainer);
+)(BroadcastContainer);

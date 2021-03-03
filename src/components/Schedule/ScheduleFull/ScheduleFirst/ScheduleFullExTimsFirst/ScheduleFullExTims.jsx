@@ -10,18 +10,18 @@ const ScheduleFullExTimsFirst = (props) => {
         <div className={s.container}>
             <Logo />
             <div className={s.block}>
-                <h1 className={s.h}>Андрей, сегодня вы можете принять участие в любой инересующей вас сессии</h1>
+                <h1 className={s.h}>{props.name}, сегодня вы можете принять участие в любой инересующей вас сессии</h1>
                 <div className={s.block__stage}>
                     <div className={s.block__time__2}>
                         <span className={s.block__time__value}>9.00-9.40</span>
                     </div>
                     <div className={s.block__events}>
-                        <div className={s.event}>
+                        <NavLink to="/schedule/first" className={s.event}>
                             <p className={s.event__inf__1}>АГ ВИЗИТ (ТРИПЛИКСАМ / ПРЕСТАНС / ЛИПЕРТАНС / ПРЕСТАРИУМ)</p>
-                        </div>
-                        <div className={s.event}>
+                        </NavLink>
+                        <NavLink to="/schedule/first" className={s.event}>
                             <p className={s.event__inf__1}>АГ ВИЗИТ (ПРЕСТИЛОЛ / НОЛИПРЕЛ / АРИФАМ)</p>
-                        </div>
+                        </NavLink>
                     </div>
                 </div>
 
@@ -47,9 +47,9 @@ const ScheduleFullExTimsFirst = (props) => {
                     <div className={s.block__time__2}>
                         <span className={s.block__time__value}>11.00-11.10</span>
                     </div>
-                    <div className={s.block__break}>
+                    <NavLink to="/schedule/first"  className={s.block__break}>
                         <span className={s.block__break__text}>Зумба</span>
-                    </div>
+                    </NavLink>
                 </div>
 
                 <div className={s.block__stage}>
@@ -75,18 +75,15 @@ const ScheduleFullExTimsFirst = (props) => {
                     <div className={s.block__time__2}>
                         <span className={s.block__time__value}>13.10-13.50</span>
                     </div>
-
-
                     <div className={s.block__events__2}>
-                        <div className={s.block__event__1}>
-                                <h3 className={s.event__h3__text}>ДЕТРАЛЕКС</h3>
-                        </div>
-                        <div className={s.block__event__1}>
-                                <h3 className={s.event__h3__text}>ДИАБЕТОН</h3>
-                        </div>
+                        <NavLink to="/schedule/first" className={s.block__event__1}>
+                            <h3 className={s.event__h3__text}>ДЕТРАЛЕКС</h3>
+                        </NavLink>
+                        <NavLink to="/schedule/first" className={s.block__event__1}>
+                            <h3 className={s.event__h3__text}>ДИАБЕТОН</h3>
+                        </NavLink>
                     </div>
                 </div>
-
 
                 <div className={s.block__stage}>
                     <div className={s.block__time}>
@@ -110,18 +107,18 @@ const ScheduleFullExTimsFirst = (props) => {
                     <div className={s.block__time__2}>
                         <span className={s.block__time__value}>15.40-15.50</span>
                     </div>
-                    <div className={s.block__break}>
+                    <NavLink to="/schedule/first"  className={s.block__break}>
                         <span className={s.block__break__text}>Зумба</span>
-                    </div>
+                    </NavLink>
                 </div>
 
                 <div className={s.block__stage__break}>
                     <div className={s.block__time__2}>
                         <span className={s.block__time__value}>15.50-17.50</span>
                     </div>
-                    <div className={s.block__break}>
+                    <NavLink to="/schedule/first"  className={s.block__break}>
                         <span className={s.block__break__text}>Тимбилдинг</span>
-                    </div>
+                    </NavLink>
                 </div>
 
                 <div className={s.block__stage}>

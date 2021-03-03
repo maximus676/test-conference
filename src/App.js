@@ -12,6 +12,7 @@ import Navbar from "./components/Navbar/Navbar";
 import ScheduleContainer from "./components/Schedule/ScheduleContainer";
 import ScheduleFirstContainer from "./components/Schedule/ScheduleFull/ScheduleFirst/ScheduleFirstContainer";
 import ContestContainer from "./components/Contest/ContestContainer";
+import BroadcastContainer from "./components/Broadcast/BroadcastContainer";
 
 
 
@@ -30,9 +31,11 @@ class App extends React.Component {
                     <Route exact path='/schedule' render={() => <ScheduleContainer />}/>
                     <Route path='/contest' render={() => <ContestContainer />}/>
 
-                    <Route path='/schedule/first' render={() => <ScheduleFirstContainer />}/>
-                    <Route path='/schedule/second' render={() => <ScheduleFirstContainer />}/>
-                    <Route path='/schedule/third' render={() => <ScheduleFirstContainer />}/>
+                    <Route exact path='/schedule/first' render={() => <ScheduleFirstContainer />}/>
+                    <Route exact path='/schedule/second' render={() => <ScheduleFirstContainer />}/>
+                    <Route exact path='/schedule/third' render={() => <ScheduleFirstContainer />}/>
+
+                    <Route exact path='/schedule/broadcast' render={() => <BroadcastContainer />}/>
 
                     <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>

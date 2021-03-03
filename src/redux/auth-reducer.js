@@ -1,11 +1,11 @@
-import {profileAPI, securityAPI, usersAPI} from "../api/api";
+
 import {stopSubmit} from "redux-form";
 
 let  initialState =  {  /* инициалтзационный стейт который будет инициализировать подветку sidebar*/
-    isAuth: true,    /*булевое значение отоброжения логина в хедере показывает твою регистрацию на сайте*/
-    isSidebarVisible : true,
-    level: null,
-    name: /*null*/ "Max",
+    isAuth: /*false,*/   true,    /*булевое значение отоброжения логина в хедере показывает твою регистрацию на сайте*/
+    isSidebarVisible : /*false,*/   true,
+    level: /*null,*/ 1,
+    name: /*null */  "Max",
 };
 
 const authReducer = (state = initialState, action) => {

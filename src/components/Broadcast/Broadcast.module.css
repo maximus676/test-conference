@@ -1,0 +1,40 @@
+.container{
+    max-width: 1800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 93%;
+    height: 85vh;
+    margin: auto;
+    color: white;
+}
+
+.block__video{
+    height: 75vh;
+    width: 79%;
+    background-color: white;
+}
+.block__dialog{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    width: 21%;
+    background-color: #6DA6E9;
+    font-size: 30px;
+}
+.h{
+    text-align: center;
+    font-size: 45px;
+    font-weight: 200;
+    margin-bottom: 50px;
+    color: white;
+}
+.text{
+    height: 100%;
+    width: 100%;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 21px;
+    /*line-height: 36px;*/
+}

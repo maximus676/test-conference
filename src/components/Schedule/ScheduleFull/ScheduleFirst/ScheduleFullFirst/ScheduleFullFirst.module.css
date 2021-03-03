@@ -111,9 +111,11 @@
     color: #1C2360;
 }
 .event__speaker__1, .event__speaker__2{
+    text-decoration: none;
     line-height: 1.1;
     font-size: 11px;
     text-align: center;
+    color: white;
     padding-top: 2px;
 }
 .event__speaker__2{
