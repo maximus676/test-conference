@@ -10,6 +10,7 @@
 }
 .block{
     display: block;
+    height: 80%;
     width: 100%;
     margin-top: 8%
 }

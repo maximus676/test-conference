@@ -35,7 +35,7 @@ class App extends React.Component {
                     <Route exact path='/schedule/second' render={() => <ScheduleFirstContainer />}/>
                     <Route exact path='/schedule/third' render={() => <ScheduleFirstContainer />}/>
 
-                    <Route exact path='/schedule/broadcast' render={() => <BroadcastContainer />}/>
+                    <Route  path='/schedule/broadcast/:src?' render={() => <BroadcastContainer />}/>
 
                     <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
                 </Switch>
@@ -48,6 +48,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default compose(
-   /* withRouter,*/
+    withRouter,
     connect(mapStateToProps, {
          })) (App);

@@ -9,12 +9,12 @@ import Profile from "./Profile";
 
 
 
-class ProfileContainer extends React.Component {
+class ProfileContainer extends React.Component  {
 
     render () {
         return(
             <div>
-                <Profile level={this.props.level} name={this.props.name}/>
+                <Profile name={this.props.name}/>
             </div>
         )
     }
@@ -22,10 +22,9 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        level: state.auth.level,
         name: state.auth.name
-        /*name: */
     }};
+
 
 export default compose(
     connect (mapStateToProps, {

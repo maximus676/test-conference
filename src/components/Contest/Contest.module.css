@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 43%;
+    width: 57%;
     height: 85vh;
     margin: auto;
     color: white;
@@ -25,4 +25,47 @@
     font-style: normal;
     font-size: 21px;
     /*line-height: 36px;*/
+}
+
+.container__carousel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.block__button{
+    width: 7%;
+
+}
+.block__carousel{
+    width: 86%;
+}
+
+.block__button__scrolling{
+    height: 45px;
+    width: 30px;
+}
+
+
+
+
+
+
+
+
+.block__loading{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+}
+.loading{
+    width: 37%;
+    background-color: #6DA6E9;
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 8px 0;
+    margin-top: 45px;
+    box-shadow: 0 0 10px 7px rgba(130, 213, 239, 0.3);
 }

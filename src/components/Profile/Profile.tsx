@@ -2,7 +2,12 @@ import React from "react";
 import s from "./Profile.module.css";
 import Logo from "../common/Logo/Logo";
 
-const Profile = (props) => {
+type PropsType = {
+    name: string
+
+}
+
+const Profile : React.FC<PropsType>  = (props) => {
     return (
         <div className={s.container}>
             <Logo/>

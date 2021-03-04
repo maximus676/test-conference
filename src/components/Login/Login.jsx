@@ -12,13 +12,13 @@ const LoginForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div >
-                <div>
+                <div className={s.block__input}>
                     <span className={s.form__span}>Введите адрес вашей электронной почты</span>
                     <Field className={s.form__input} placeholder={""} name={"email"}
                            component={Input}
                            validate={[required]}/>
                 </div>
-                <div>
+                <div className={s.block__input}>
                     <span className={s.form__span}>Введите пароль</span>
                     <Field className={s.form__input} placeholder={""} name={"password"}
                            type={"password"}
@@ -32,15 +32,16 @@ const LoginForm = (props) => {
         </form>
     );
 }
+const LoginReduxForm = reduxForm({form: "loginnn"})(LoginForm)
 
-const LoginReduxForm = reduxForm({form: "loginnn"})(LoginForm)     /*вокруг LoginForm создаем контейнерную компоненту reduxForm под названием LoginReduxForm  и каждой форме предаеи уникальное название как в пропсах form: "login"*/
+
+
 
 const Login = (props) => {
     const onSubmit = (formData) => {
-        props.loginThunkCreator(formData.email, formData.password)      /* formData.captcha - отправляеам капчу на сервер */
+        props.loginThunkCreator(formData.email, formData.password)
     }
-    if(props.isAuth){                               /*если залогинены и нам приходит isAuth то редирект */
-        debugger;
+    if(props.isAuth){
         return <Redirect to={"/profile"}/>
     }
 
@@ -63,4 +64,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect (mapStateToProps, {loginThunkCreator}) (Login); /* mapStateToProps в нем isAuth*/  /* а вторым параметром мы диспчим вызов санки*/
+export default connect (mapStateToProps, {loginThunkCreator}) (Login);

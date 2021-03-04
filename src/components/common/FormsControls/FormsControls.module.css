@@ -24,21 +24,29 @@
     height: 100vh;
 }
 .container__h{
+    text-align: center;
     color: white;
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 200;
-    margin-bottom: 40px;
+    margin-bottom: 95px;
 }
 
 .container__form{
+    width: 100%;
     display: block;
+}
+.block__input{
+    margin-bottom: 20px;
 }
 .form__span{
     color: white;
+    font-size: 17px;
 }
 .form__input{
+    height: 40px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 3px;
+    border-radius: 10px;
 }
 
 .block__exit{
@@ -48,6 +56,14 @@
     margin-top: 25px;
 }
 .exit{
-
+    width: 60%;
+    background-color: #6DA6E9;
+    color: white;
+    font-size: 19px;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 8px 0;
+    margin-top: 45px;
+    box-shadow: 0 0 10px 7px rgba(130, 213, 239, 0.3);
 }
 
