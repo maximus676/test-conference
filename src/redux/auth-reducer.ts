@@ -5,10 +5,10 @@ import {AppStateType} from "./redux-store";
 const SET_USER_DATA = "/auth/SET-USER-DATA";
 
 let  initialState =  {  /* инициалтзационный стейт который будет инициализировать подветку sidebar*/
-    isAuth: false,   /*true, */   /*булевое значение отоброжения логина в хедере показывает твою регистрацию на сайте*/
-    isSidebarVisible : false,   /*true,*/
-    level: null as number | null, /*1,*/
-    name: ""  /* "Max",*/
+    isAuth: /*false,*/   true,    /*булевое значение отоброжения логина в хедере показывает твою регистрацию на сайте*/
+    isSidebarVisible :/* false,*/   true,
+    level: /*null as number | null,*/ 1,
+    name: /*""*/   "Max",
 };
 export type InitialStateType = typeof initialState;
 

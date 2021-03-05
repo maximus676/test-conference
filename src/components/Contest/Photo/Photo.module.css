@@ -1,0 +1,36 @@
+.block__imgs__img{
+    height: 92%;
+    width: 170px;
+    background: #6DA6E9;
+    border-radius: 10px;
+}
+.img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+
+}
+.block__likes{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    background-color: white;
+    border-radius: 10px 0 10px 0;
+    width: 55px;
+    height: 30px;
+    z-index: 1;
+    top: -25.5%;
+    left: 67%;
+}
+.count__like{
+    padding-left: 2px;
+}
+.like__off{
+    height: 15px;
+    margin-right: 2px;
+}
+.like{
+    height: 15px;
+    margin-right: 2px;
+}

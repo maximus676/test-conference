@@ -7,6 +7,7 @@ import {loginThunkCreator} from "../../redux/auth-reducer";
 import Redirect from "react-router-dom/es/Redirect";
 import s from "../common/FormsControls/FormsControls.module.css";
 import Logo from "../common/Logo/Logo";
+import PhotoUpload from "../common/PhotoUpload/PhotoUpload";
 
 const LoginForm = (props) => {
     return (
@@ -47,6 +48,7 @@ const Login = (props) => {
 
     return (
         <div>
+           {/* <PhotoUpload />*/}
             <Logo/>
             <div className={s.container}>
                 <div className={s.container__form}>
