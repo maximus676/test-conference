@@ -14,15 +14,18 @@ import PhotoUploadContainer from "../common/PhotoUpload/PhotoUploadContainer";
 import Photo from "./Photo/Photo";
 import ShowPhoto from "./ShowPhoto/ShowPhoto";
 import PhotoSuccessContainer from "../common/PhotoSuccess/PhotoSuccessContainer";
+import PhotoContainer from "./Photo/PhotoContainer";
+import ShowPhotoContainer from "./ShowPhoto/ShowPhotoContainer";
 
 
 
 
 
 const Contest = (props) => {
+
+    console.log(props.photos +  "!!!!!!!!")
+
     const carouselRef = useRef(null)
-    const [colPos, setColPos] = useState([])
-    const [rowPos, setRowPos] = useState(0)
 
     const onRightClick = () => {
         carouselRef.current.next()
@@ -38,29 +41,19 @@ const Contest = (props) => {
     const onLoading = () => {
         props.openLoadingPhoto(true)
     }
-    /*const testF = () => {
-        console.log("start")
-        let c = 0
-        let r = 0
-        props.photos.map(element => {
-            c++
-            if (c <= 4) {
-                console.log("+++")
-            }else {
-                console.log("---")
-                c = 0
-                r++
-            }
-        })
-    }*/
-    let allF = []
-    let allG = []
 
-    const testF = () => {
-        console.log("start")
-        allF = props.photos.map(element => <Photo src={element} />)
-        for (let i = 0; i< Math.ceil(allF.length/4); i++) {
-            allG[i] = allF.slice((i*4), (i*4) + 4)
+
+    let photoWall = []
+
+    const createPhotoWall = () => {
+        const allElements = props.photos.map((element, index ) =>  <PhotoContainer id={index} src={element.Photo} isToggleLike={element.isToggleLike} LikeCount={element.LikeCount} />)
+        for (let i = 0; i< Math.ceil(allElements.length/8); i++) {
+            photoWall[i] =
+                <div className={s.container__img}>
+                    <div className={s.block__imgs}>
+                        {allElements.slice((i * 8), (i * 8) + 8)}
+                    </div>
+                </div>
         }
     }
 
@@ -68,12 +61,11 @@ const Contest = (props) => {
         <div className={s.container}>
             <PhotoSuccessContainer />
             <PhotoUploadContainer />
-            <ShowPhoto />
+            <ShowPhotoContainer />
             <Logo/>
             <div className={s.block__content}>
                 <h1 className={s.h}>Фотоконкурс</h1>
-                <div className={s.text} onClick={() => {
-                    console.log("test", allG)}}>
+                <div className={s.text}>
                     <p>В этот раз мы встречаемся в новом формате. Мы находимся в
                         разных городах и странах и даже в разных часовых поясах. Но мы не
                         воспринимаем обстоятельства как преграду, мы воспринимаем их
@@ -88,52 +80,12 @@ const Contest = (props) => {
 
                     <div className={s.block__carousel}>
                         <Carousel afterChange={onChange} ref={carouselRef} dots={false}>
-                            {/*{testF()}*/}
-                            {allF.map(el => (
-                                <div className={s.block__imgs}>
-                                    {el}
-                                </div>
+                            {createPhotoWall()}
+                            {photoWall.map(element => (
+                                <div className={s.container__img}>
+                                    {element}
+                                    </div>
                             ))}
-                            {/*<div className={s.container__img}>
-
-                                <div className={s.block__imgs}>
-                                    <Photo src={qwerty}/>
-
-                                    <Photo />
-
-                                    <Photo />
-
-                                    <Photo />
-                                </div>
-                                <div className={s.block__imgs}>
-                                    <Photo />
-
-                                    <Photo />
-
-                                    <Photo />
-
-                                    <Photo />
-
-                                </div>
-                            </div>*/}
-                            <div className={s.container__img}>
-                                <div className={s.block__imgs}>
-                                    <div className={s.block__imgs__img}>
-                                        <img className={s.img} src={qwe}/>
-                                    </div>
-                                    <div className={s.block__imgs__img}>
-                                        <img className={s.img} src={qwe}/>
-                                    </div>
-                                    <div className={s.block__imgs__img}>
-                                        <img className={s.img} src={qwerty}/>
-                                    </div>
-
-                                    <Photo />
-                                </div>
-                            </div>
-                            <div className={s.container__img}>
-                                <h3 className={s.block__carousel}>3</h3>
-                            </div>
                         </Carousel>
 
                     </div>

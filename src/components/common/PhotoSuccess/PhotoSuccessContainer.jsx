@@ -11,12 +11,12 @@ class PhotoSuccessContainer extends React.Component {
     render () {
         return(
             <div>
+                {console.log(this.props.photos)}
                 <PhotoSuccess isLoadingPhoto={this.props.isLoadingPhoto}
                              openLoadingPhoto={this.props.openLoadingPhoto}
                               isPreview={this.props.isPreview}
                               photos={this.props.photos}
-                              openPreview={this.props.openPreview}
-                             /*savePhoto={this.props.savePhoto}*//>
+                              openPreview={this.props.openPreview}/>
             </div>
         )
     }
@@ -33,7 +33,6 @@ export default compose(
     connect (mapStateToProps, {
         openLoadingPhoto: openLoadingPhotoActionCreator,
         openPreview: openPreviewActionCreator
-        /*savePhoto: savePhotoActionCreator*/
     }),
     withAuthRedirect
 )(PhotoSuccessContainer);

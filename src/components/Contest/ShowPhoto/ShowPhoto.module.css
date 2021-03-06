@@ -1,25 +1,32 @@
-
+.container{
+    display: contents;
+}
 .block__imgs__img__none{
     display: none;
 }
 .block__imgs__img{
     position: absolute;
-    z-index: 7;
+    top: auto;
+    left: auto;
    /* border: 10px outset #88C4FB;*/
     background: #000000;
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 101vh;
+    width: 1200px;
 
 }
 .photo{
+    max-width: 700px;
+    max-height: 700px;
     z-index: 8;
 }
 .background{
     position: absolute;
     z-index: 6;
     height: 101vh;
-    width: 1000px;
+    width: 1200px;
     background: #000000;
-    opacity: 0.9;
+
 }

@@ -8,6 +8,7 @@ import {Button, Upload} from "antd";
 import {UploadOutlined} from "@ant-design/icons";
 import {AsyncLocalStorage} from "async_hooks";
 
+
 type PropsType = {
     isLoadingPhoto: boolean
 
@@ -23,7 +24,9 @@ const PhotoUpload: React.FC<PropsType>  = (props) => {
             const reader = new FileReader();
 
             reader.onload = function(event: any) {
-                props.savePhoto(event.target.result);
+
+                // @ts-ignore
+                props.savePhoto(event.target.result, 0 , false);
             }
 
             reader.readAsDataURL(e.target.files[0]);

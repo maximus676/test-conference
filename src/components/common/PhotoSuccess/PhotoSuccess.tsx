@@ -11,9 +11,10 @@ type PropsType = {
 }
 
 const PhotoSuccess: React.FC<PropsType>  = (props) => {
+
     const [preview, setPreview] = useState(qwe)
     useEffect(() => {
-        setPreview(props.photos[0])
+        if(props.photos[0]){setPreview(props.photos[props.photos.length-1].Photo)}
     }, [props.photos])
 
     const onExit = () => {
