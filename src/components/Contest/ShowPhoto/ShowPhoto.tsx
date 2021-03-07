@@ -1,10 +1,14 @@
 import React from "react";
 import s from "./ShowPhoto.module.css";
-import qwe from "../../Icons/128.png";
-import qwerty from "../../Icons/Снимок20.PNG";
 
+type PropsType = {
+    isShowPhoto: boolean
+    bigPhoto: string
 
-const ShowPhoto = (props) => {
+    activePhoto: (isShowPhoto: boolean, id: number) => void
+}
+
+const ShowPhoto: React.FC<PropsType>  = (props) => {
 
     const ExitPhoto = () => {
         props.activePhoto(false, 0)
@@ -12,7 +16,7 @@ const ShowPhoto = (props) => {
 
     return (
         <div className={ props.isShowPhoto ?  s.block__imgs__img : s.block__imgs__img__none}  onClick={ExitPhoto}>
-            <img className={s.photo} src={props.bigPhoto ? props.bigPhoto : qwerty}/>
+            <img className={s.photo} src={props.bigPhoto}/>
             <div className={s.background}></div>
         </div>
     );

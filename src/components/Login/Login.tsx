@@ -1,15 +1,15 @@
 import React from "react";
-import {Field, reduxForm} from "redux-form";
+import {Field, InjectedFormProps, reduxForm} from "redux-form";
 import {createField, Input} from "../common/FormsControls/FormsControls";
 import {required} from "../../utils/validators/validators";
 import {connect} from "react-redux";
 import {loginThunkCreator} from "../../redux/auth-reducer";
-import Redirect from "react-router-dom/es/Redirect";
+import {Redirect} from "react-router-dom";
 import s from "../common/FormsControls/FormsControls.module.css";
 import Logo from "../common/Logo/Logo";
-import PhotoUpload from "../common/PhotoUpload/PhotoUpload";
+import {AppStateType} from "../../redux/redux-store";
 
-const LoginForm = (props) => {
+const LoginForm: React.FC<InjectedFormProps<LoginFormValuesType>>  = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <div >
@@ -33,13 +33,23 @@ const LoginForm = (props) => {
         </form>
     );
 }
-const LoginReduxForm = reduxForm({form: "loginnn"})(LoginForm)
+const LoginReduxForm = reduxForm<LoginFormValuesType>({form: "loginnn"})(LoginForm)
 
 
 
+type MapStatePropsType = {
+    isAuth: boolean
+}
+type MapDispatchPropsType = {
+    loginThunkCreator:(email: string, password: string) => void
+}
 
-const Login = (props) => {
-    const onSubmit = (formData) => {
+type LoginFormValuesType = {
+    email: string
+    password: string
+}
+const Login: React.FC<MapStatePropsType & MapDispatchPropsType> = (props) => {
+    const onSubmit = (formData: LoginFormValuesType) => {
         props.loginThunkCreator(formData.email, formData.password)
     }
     if(props.isAuth){
@@ -48,7 +58,6 @@ const Login = (props) => {
 
     return (
         <div>
-           {/* <PhotoUpload />*/}
             <Logo/>
             <div className={s.container}>
                 <div className={s.container__form}>
@@ -60,7 +69,7 @@ const Login = (props) => {
     );
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state: AppStateType):MapStatePropsType => {
     return {
         isAuth: state.auth.isAuth,
     }

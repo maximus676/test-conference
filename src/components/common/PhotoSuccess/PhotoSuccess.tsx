@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from "react";
 import s from "./PhotoSuccess.module.css";
 import qwe from "../../Icons/128.png";
+import {PhotoType} from "../../../types/types";
 
 
 type PropsType = {
     isPreview: boolean
-    photos: any
+    photos:  Array <PhotoType>
 
     openPreview: ( isPreview: boolean) => void
 }

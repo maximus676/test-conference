@@ -1,17 +1,20 @@
 import React from "react";
 import {connect} from "react-redux";
-/*import {
-} from "../../redux/profile-reducer";*/
 import {compose} from "redux";
 import {withAuthRedirect} from "../../../hoc/withAuthRedirect";
 import ScheduleFullFirst from "./ScheduleFullFirst/ScheduleFullFirst";
 import ScheduleFullExTimsFirst from "./ScheduleFullExTimsFirst/ScheduleFullExTims";
 import ScheduleIndFirst from "./ScheduleIndFirst/ScheduleIndFirst";
+import {AppStateType} from "../../../../redux/redux-store";
 
 
+type MapStatePropsType = {
+    level:number | null
+    name: string
+}
+type PropsType = MapStatePropsType
 
-
-class ScheduleFirstContainer extends React.Component {
+class ScheduleFirstContainer extends React.Component <PropsType> {
 
      AccessLevel = () => {
         let level = this.props.level
@@ -35,14 +38,14 @@ class ScheduleFirstContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType) => {
     return {
         level: state.auth.level,
         name: state.auth.name
     }};
 
-export default compose(
-    connect (mapStateToProps, {
+export default compose <React.ComponentType> (
+    connect  <MapStatePropsType, { }, { }, AppStateType> (mapStateToProps, {
     }),
      withAuthRedirect
 )(ScheduleFirstContainer);

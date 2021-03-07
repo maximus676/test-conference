@@ -1,15 +1,18 @@
 import React from "react";
 import {connect} from "react-redux";
-/*import {
-} from "../../redux/profile-reducer";*/
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
 import Profile from "./Profile";
+import {AppStateType} from "../../redux/redux-store";
 
 
+type MapStatePropsType = {
+    name: string
+}
 
+type PropsType = MapStatePropsType
 
-class ProfileContainer extends React.Component  {
+class ProfileContainer extends React.Component <PropsType> {
 
     render () {
         return(
@@ -20,14 +23,14 @@ class ProfileContainer extends React.Component  {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType) => {
     return {
         name: state.auth.name
     }};
 
 
-export default compose(
-    connect (mapStateToProps, {
+export default compose <React.ComponentType> (
+    connect <MapStatePropsType, { }, { }, AppStateType> (mapStateToProps, {
     }),
      withAuthRedirect
 )(ProfileContainer);

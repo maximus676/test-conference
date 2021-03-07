@@ -1,3 +1,4 @@
+import {PhotoType} from "../types/types";
 
 const OPEN_LOADING_PHOTO = "OPEN-LOADING-PHOTO";
 const SAVE_PHOTO = "SAVE-PHOTO"
@@ -5,8 +6,10 @@ const OPEN_PREVIEW = "OPEN-PREVIEW"
 const ACTIVE_LIKE = "ACTIVE-LIKE"
 const ACTIVE_PHOTO = "ACTIVE-PHOTO"
 
+const _ = require('lodash');
+
 let  initialState =  {
-    photos: [] as Array <any>,
+    photos: [] as Array <PhotoType>,
     isLoadingPhoto : false,
     isPreview: false,
     isShowPhoto: false,
@@ -39,10 +42,10 @@ const contestReducer = (state = initialState, action: ActionsTypes): InitialStat
             tempArray [action.id].isToggleLike = action.isToggleLike
             tempArray [action.id].LikeCount = action.LikeCount + 1
             tempArray.sort( (a, b) => {
-                if (a.LikeCount < b.LikeCount) {
+                if (_.get(a,"LikeCount") < _.get(b,"LikeCount") ) {
                     return 1;
                 }
-                if (a.LikeCount > b.LikeCount) {
+                if (_.get(a,"LikeCount") > _.get(b,"LikeCount")) {
                     return -1;
                 }
                 return 0
@@ -66,7 +69,7 @@ const contestReducer = (state = initialState, action: ActionsTypes): InitialStat
 
 
 type SavePhotoActionPayloadType = {
-    Photo: any
+    Photo: string
     LikeCount: number | null
     isToggleLike: boolean
 }

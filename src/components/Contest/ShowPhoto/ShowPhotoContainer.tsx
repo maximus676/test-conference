@@ -7,9 +7,19 @@ import {
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import ShowPhoto from "./ShowPhoto";
 import s from "./ShowPhoto.module.css";
+import {AppStateType} from "../../../redux/redux-store";
 
+type MapStatePropsType = {
+    isShowPhoto: boolean
+    bigPhoto: string
+}
+type MapDispatchPropsType = {
+    activePhoto: (isShowPhoto: boolean, id: number) => void
+}
 
-class ShowPhotoContainer extends React.Component {
+type PropsType = MapStatePropsType & MapDispatchPropsType
+
+class ShowPhotoContainer extends React.Component <PropsType> {
 
     render () {
         return(
@@ -23,14 +33,14 @@ class ShowPhotoContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType) => {
     return {
         isShowPhoto: state.contest.isShowPhoto,
         bigPhoto: state.contest.bigPhoto
     }};
 
-export default compose(
-    connect (mapStateToProps, {
+export default compose <React.ComponentType>(
+    connect <MapStatePropsType, MapDispatchPropsType, { }, AppStateType> (mapStateToProps, {
         activePhoto: activePhotoActionCreator
     }),
     withAuthRedirect

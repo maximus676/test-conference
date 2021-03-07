@@ -1,11 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-/*import {
-} from "../../redux/profile-reducer";*/
 import {compose} from "redux";
 import {withAuthRedirect} from "../hoc/withAuthRedirect";
 import Schedule from "./Schedule";
-
 
 
 class ScheduleContainer extends React.Component {
@@ -17,13 +14,13 @@ class ScheduleContainer extends React.Component {
         )
     }
 }
-let mapStateToProps = (state) => {
+let mapStateToProps = () => {
     return {
 
     }};
 
-export default compose(
-    connect (mapStateToProps, {
+export default compose <React.ComponentType>(
+    connect  (mapStateToProps, {
     }),
      withAuthRedirect
 )(ScheduleContainer);

@@ -8,9 +8,19 @@ import {
     savePhotoActionCreator
 } from "../../../redux/contest-reducer";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {AppStateType} from "../../../redux/redux-store";
 
+type MapStatePropsType = {
+    isLoadingPhoto:boolean
+}
+type MapDispatchPropsType = {
+    openLoadingPhoto: (isLoadingPhoto: boolean) => void
+    savePhoto: (Photo:string, LikeCount: number, isToggleLike: boolean) => void
+    openPreview: (isPreview: boolean) => void
+}
+type PropsType = MapStatePropsType & MapDispatchPropsType
 
-class PhotoUploadContainer extends React.Component {
+class PhotoUploadContainer extends React.Component <PropsType> {
 
     render () {
         return(
@@ -24,13 +34,13 @@ class PhotoUploadContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapStateToProps = (state: AppStateType): MapStatePropsType => {
     return {
         isLoadingPhoto: state.contest.isLoadingPhoto
     }};
 
-export default compose(
-    connect (mapStateToProps, {
+export default compose <React.ComponentType>(
+    connect <MapStatePropsType, MapDispatchPropsType, { }, AppStateType> (mapStateToProps, {
         openLoadingPhoto: openLoadingPhotoActionCreator,
         savePhoto: savePhotoActionCreator,
         openPreview: openPreviewActionCreator

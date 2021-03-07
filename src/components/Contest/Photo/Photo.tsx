@@ -4,10 +4,18 @@ import qwe from "../../Icons/128.png";
 import Like__off from "../../Icons/Like__off.svg";
 import Like from "../../Icons/Like.svg";
 
+type PropsType = {
+    src: string
+    isToggleLike: boolean
+    LikeCount: number
+    id: number
+
+    activeLink: (isToggleLike: boolean, id: number, LikeCount:number ) => void
+    activePhoto: (isShowPhoto: boolean, id: number ) => void
+}
 
 
-
-const Photo = (props) => {
+const Photo: React.FC<PropsType>  = (props) => {
 
     const PressLike = () => {
         props.activeLink(true, props.id, props.LikeCount)
@@ -26,5 +34,6 @@ const Photo = (props) => {
         </div>
     );
 }
+
 
 export default Photo;
